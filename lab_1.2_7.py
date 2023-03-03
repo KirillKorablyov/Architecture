@@ -1,7 +1,7 @@
 
 from tkinter import Tk, Frame, BOTH
 
-class Example(Frame):
+class GUI(Frame):
     def __init__(self, parent):
         Frame.__init__(self, parent, background="white")
         self.parent = parent
@@ -15,7 +15,7 @@ class Example(Frame):
 def main():
     root = Tk()
     root.geometry("600x600")
-    app = Example(root)
+    app = GUI(root)
     root.mainloop()
 
 
