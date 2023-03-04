@@ -1,23 +1,26 @@
+from tkinter import *
 
-from tkinter import Tk, Frame, BOTH
-
-class GUI(Frame):
-    def __init__(self, parent):
-        Frame.__init__(self, parent, background="white")
-        self.parent = parent
-        self.initUI()
-
-    def initUI(self):
-        self.parent.title("GUI")
-        self.pack(fill=BOTH, expand=1)
+canvas_width = 600
+canvas_height = 600
 
 
-def main():
-    root = Tk()
-    root.geometry("600x600")
-    app = GUI(root)
-    root.mainloop()
+def paint(event):
+    python_green = "#476042"
+    x1, y1 = (event.x - 1), (event.y - 1)
+    x2, y2 = (event.x + 1), (event.y + 1)
+    w.create_oval(x1, y1, x2, y2, fill=python_green)
 
 
-if __name__ == '__main__':
-    main()
+
+master = Tk()
+master.title("GUI")
+w = Canvas(master,
+           width=canvas_width,
+           height=canvas_height)
+w.pack(expand=YES, fill=BOTH)
+w.bind("<B1-Motion>", paint)
+
+message = Label(master, text="Зажмите мышь и ведите!")
+message.pack(side=BOTTOM)
+
+mainloop()
