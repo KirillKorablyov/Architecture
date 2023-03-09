@@ -123,24 +123,15 @@
 #
 # # Функции – генераторы. Оператор yield.
 #
-# def fib(n):
-#     a, b = 0, 1
-#     for i in range(n):
-#         yield b
-#         a, b = b, a + b
-#
-# x = fib(13)
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
-# print(next(x))
+def fib(n):
+    a, b = 0, 1
+    for i in range(n):
+        yield b
+        a, b = b, a + b
+
+#Защита
+
+n = int(input("Введите количество элементов последовательности Фибоначчи: "))
+
+for i, val in enumerate(fib(n), start = 1):
+    print(f"№ {i} => {val}")
